@@ -57,9 +57,17 @@ ul:not([class]) {
 */
 [data-floating-ui-safe-polygon] .scrollbar-container {
   pointer-events: auto;
+
 }
 [data-floating-ui-safe-polygon] .scrollbar-container .ps__rail-y {
   pointer-events: none;
+  
+}
+
+.scrollbar-container {
+  padding-top: 20px;
+  background-color: #182f5f;
+  border-top-right-radius: 20px;
 }
 
 .ps__rail-y {
@@ -131,3 +139,4 @@ code {
   background-color: rgb(var(--mui-palette-info-mainChannel) / 0.08);
   border: 0;
 }
+

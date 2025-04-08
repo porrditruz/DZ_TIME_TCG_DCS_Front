@@ -53,6 +53,7 @@ const Navbar = (props: Props) => {
   const headerContentWide = navbarContentWidth === 'wide'
 
   return (
+    <div style={{ backgroundColor: '#182f5f' , borderBottomLeftRadius: '20px'}}>
     <StyledHeader
       theme={theme}
       overrideStyles={overrideStyles}
@@ -70,6 +71,7 @@ const Navbar = (props: Props) => {
     >
       <div className={classnames(verticalLayoutClasses.navbar, 'flex bs-full')}>{children}</div>
     </StyledHeader>
+    </div>
   )
 }
 

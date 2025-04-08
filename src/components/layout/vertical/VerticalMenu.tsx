@@ -68,22 +68,17 @@ const VerticalMenu = ({ scrollMenu }: Props) => {
         renderExpandedMenuItemIcon={{ icon: <i className='ri-circle-fill' /> }}
         menuSectionStyles={menuSectionStyles(verticalNavOptions, theme)}
       >
-        <MenuItem href='/home' icon={<i className='ri-home-smile-line' />}>
-          Home
+        <MenuItem href='/home' icon={<i className='ri-home-smile-line bg-white' />}>
+          <div className='text-white'>หน้าหลัก</div>
         </MenuItem>
-        <MenuItem href='/about' icon={<i className='ri-information-line' />}>
-          About
+        <MenuItem href='/about' icon={<i className='ri-settings-2-line bg-white' />}>
+          <div className='text-white'>ระบบบริหารคดี</div>
         </MenuItem>
+        <MenuItem href='/landingpage' icon={<i className='ri-settings-2-line bg-white' />}>
+          <div className='text-white'>ตั้งค่าทั่วไป </div>
+        </MenuItem>
+
       </Menu>
-      {/* <Menu
-        popoutMenuOffset={{ mainAxis: 17 }}
-        menuItemStyles={menuItemStyles(verticalNavOptions, theme)}
-        renderExpandIcon={({ open }) => <RenderExpandIcon open={open} transitionDuration={transitionDuration} />}
-        renderExpandedMenuItemIcon={{ icon: <i className='ri-circle-fill' /> }}
-        menuSectionStyles={menuSectionStyles(verticalNavOptions, theme)}
-      >
-        <GenerateVerticalMenu menuData={menuData(dictionary, params)} />
-      </Menu> */}
     </ScrollWrapper>
   )
 }

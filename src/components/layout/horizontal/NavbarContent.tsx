@@ -6,7 +6,7 @@ import classnames from 'classnames'
 // Component Imports
 import NavToggle from './NavToggle'
 import Logo from '@components/layout/shared/Logo'
-import ModeDropdown from '@components/layout/shared/ModeDropdown'
+// import ModeDropdown from '@components/layout/shared/ModeDropdown'
 import UserDropdown from '@components/layout/shared/UserDropdown'
 
 // Hook Imports
@@ -29,7 +29,7 @@ const NavbarContent = () => {
         {!isBreakpointReached && <Logo />}
       </div>
       <div className='flex items-center'>
-        <ModeDropdown />
+        {/* <ModeDropdown /> */}
         <UserDropdown />
       </div>
     </div>
