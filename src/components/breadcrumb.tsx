@@ -5,7 +5,6 @@ import * as React from 'react';
 type TBreadCrumbProps = {
   pathname: string,//ชื่อพาธ
   homeElement: React.ReactNode,//ลิงค์แรก
-  separator: React.ReactNode,
   containerClasses?: string,
   listClasses?: string,
   activeClasses?: string,
@@ -15,7 +14,6 @@ type TBreadCrumbProps = {
 const NextBreadcrumb = ({
   pathname,
   homeElement ,
-  separator,
   containerClasses,
   listClasses,
   activeClasses,
@@ -26,9 +24,9 @@ const NextBreadcrumb = ({
 
   return (
     <div>
-      <ul className={containerClasses}>
-        <li className={listClasses}><Link href={'/'}>{homeElement}</Link></li>
-        {pathNames.length > 0 && separator}
+      <ul className={containerClasses='flex py-5 list-none'}>
+        <li className={listClasses='font-bold fontSize-small'}><Link href={'/'}>{homeElement}</Link></li>
+        {pathNames.length > 0 && <i className="ri-arrow-right-s-line" />}
         {
         pathNames.map((link, index) => {
             let href = `/${pathNames.slice(0, index + 1).join('/')}`
@@ -39,12 +37,12 @@ const NextBreadcrumb = ({
             <React.Fragment key={index}>
                 <li className={itemClasses}>
                 {isLast ? (
-                    <Typography className={activeClasses}>{itemLink}</Typography>
+                    <Typography className={activeClasses='text-primary font-bold'}>{itemLink}</Typography>
                 ) : (
                     <Link href={href}>{itemLink}</Link>
                 )}
                 </li>
-                {!isLast && separator}
+                {!isLast && <i className="ri-arrow-right-s-line" />}
             </React.Fragment>
             )
         })
