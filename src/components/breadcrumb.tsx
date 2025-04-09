@@ -1,46 +1,57 @@
-"use client";
-import * as React from 'react';
-import { useLocation, Link as RouterLink } from 'react-router-dom';
 import Typography from '@mui/material/Typography';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Link from '@mui/material/Link';
+import Link from 'next/link'
+import * as React from 'react';
 
-function toTitleCase(str: string) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+type TBreadCrumbProps = {
+  pathname: string,//ชื่อพาธ
+  homeElement: React.ReactNode,//ลิงค์แรก
+  separator: React.ReactNode,
+  containerClasses?: string,
+  listClasses?: string,
+  activeClasses?: string,
+  capitalizeLinks?: boolean
 }
 
-export default function DynamicBreadcrumbs() {
-  const location = useLocation();
-  const pathnames = location.pathname.split('/').filter((x) => x); 
+const NextBreadcrumb = ({
+  pathname,
+  homeElement ,
+  separator,
+  containerClasses,
+  listClasses,
+  activeClasses,
+  capitalizeLinks
+}: TBreadCrumbProps) => {
+
+  const pathNames = pathname.split('/').filter((path) => path)
 
   return (
-    <div role="presentation">
-      <Breadcrumbs aria-label="breadcrumb">
-        <Link underline="hover" color="inherit" component={RouterLink} to="/">
-          Home
-        </Link>
-
-        {pathnames.map((value, index) => {
-          const to = `/${pathnames.slice(0, index + 1).join('/')}`;
-          const isLast = index === pathnames.length - 1;
-
-          return isLast ? (
-            <Typography key={to} color="text.primary">
-              {toTitleCase(decodeURIComponent(value))}
-            </Typography>
-          ) : (
-            <Link
-              key={to}
-              underline="hover"
-              color="inherit"
-              component={RouterLink}
-              to={to}
-            >
-              {toTitleCase(decodeURIComponent(value))}
-            </Link>
-          );
-        })}
-      </Breadcrumbs>
+    <div>
+      <ul className={containerClasses}>
+        <li className={listClasses}><Link href={'/'}>{homeElement}</Link></li>
+        {pathNames.length > 0 && separator}
+        {
+        pathNames.map((link, index) => {
+            let href = `/${pathNames.slice(0, index + 1).join('/')}`
+            let isLast = index === pathNames.length - 1
+            let itemClasses = isLast ? `${listClasses} ${activeClasses}` : listClasses
+            let itemLink = capitalizeLinks ? link[0].toUpperCase() + link.slice(1) : link
+            return (
+            <React.Fragment key={index}>
+                <li className={itemClasses}>
+                {isLast ? (
+                    <Typography className={activeClasses}>{itemLink}</Typography>
+                ) : (
+                    <Link href={href}>{itemLink}</Link>
+                )}
+                </li>
+                {!isLast && separator}
+            </React.Fragment>
+            )
+        })
+        }
+      </ul>
     </div>
-  );
+  )
 }
+
+export default NextBreadcrumb
