@@ -1,8 +1,8 @@
 /*
-  Edit Field Component
+  InlineField Component
   Create Date: 04/04/2025
   Updated Date: 08/04/2025
-  Create By Mr.Porramet Obthom (Ditruz.co.ltd)
+  Create By @porrditruz (Ditruz.co.ltd)
 */
 
 'use client'

@@ -1,60 +1,15 @@
 /*
   DataTable Component
   Create Date: 04/04/2025
-  Updated Date: 07/04/2025
-  Create By Mr.Porramet Obthom (Ditruz.co.ltd)
+  Updated Date: 09/04/2025
+  Create By @porrditruz (Ditruz.co.ltd)
 */
 
 'use client'
 import { Pagination, Paper, TablePagination } from '@mui/material'
 import { DataGrid, GridColDef, GridPaginationModel } from '@mui/x-data-grid'
 import React, { useEffect, useState } from 'react'
-
-// type
-
-/*
-  modelValue: data ทั้งหมดที่จะแสดงในตาราง
-  columns: บอกว่าตารางมีคอลัมน์อะไรบ้าง เช่น field ชื่ออะไร, header ชื่ออะไร, style ฯลฯ
-  filters: ใช้กรองข้อมูล เช่น filter คำในคอลัมน์ต่าง ๆ
-  paginator: เปิด/ปิดการใช้ Pagination (แบ่งหน้า)
-  editMode: เปิด/ปิดโหมดแก้ไขข้อมูลในเซลล์
-  showGridlines: แสดงเส้นแบ่งระหว่าง cell หรือไม่
-  sortField: กำหนดว่าจะ sort ตารางตาม field อะไรเริ่มต้น
-  sortOrder: กำหนดลำดับการเรียงข้อมูล
-  rowReorder: เปิด/ปิดให้ user ลากแถวเพื่อเรียงลำดับใหม่ได้
-  headerNo: แสดง column “ลำดับที่” หรือไม่ (index ของ row)
-  scrollable: เปิดให้ตารางเลื่อนแนวตั้งได้
-  scrollHeight: ความสูงของ table scroll ถ้าเปิด scrollable
-  stripedRows: สลับสีแถวในตาราง (แถวเว้นแถว)
-  selections: รายการ row ที่ถูกเลือกอยู่ (เช่น Checkbox)
-  totalRecords: จำนวนข้อมูลทั้งหมด ใช้ในการคำนวณหน้าของ Paginator
-  rowsPaginator: กำหนดจำนวน row ต่อหน้า (default: 50)
-  onSelectionChange: ฟังก์ชันที่ถูกเรียกเมื่อเลือก row ใหม่
-  onRowReorder: ฟังก์ชันที่ถูกเรียกเมื่อมีการ reorder แถวใหม่ (ลาก row ย้ายตำแหน่ง)
-  onPage: ฟังก์ชันที่ถูกเรียกเมื่อเปลี่ยนหน้าใน paginator
-*/
-
-type DataTableProps = {
-  modelValue?: unknown[]
-  columns?: GridColDef[]
-  filters?: [String, Array<unknown>, Object]
-  editMode?: boolean
-  showGridlines?: boolean
-  sortField?: boolean
-  sortOrder?: boolean
-  rowReorder?: boolean
-  headerNo?: boolean
-  scrollable?: boolean
-  scrollHeight?: string
-  stripedRows?: boolean
-  selections?: unknown[]
-  totalRecords?: number
-  rowsPaginator?: number
-  paginator?: true | undefined
-  onSelectionChange?: (event: unknown[]) => void
-  onRowReorder?: (event: unknown[]) => void
-  onPage?: (event: unknown[]) => void
-}
+import { DataTableProps } from '../types/dataTableTypes'
 
 const DataTableComponent: React.FC<DataTableProps> = ({
   modelValue = [],
