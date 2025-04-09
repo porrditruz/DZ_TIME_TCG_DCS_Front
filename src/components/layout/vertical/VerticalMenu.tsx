@@ -74,7 +74,7 @@ const VerticalMenu = ({ scrollMenu }: Props) => {
         <MenuItem href='/about' icon={<i className='ri-settings-2-line bg-white' />}>
           <div className='text-white'>ระบบบริหารคดี</div>
         </MenuItem>
-        <MenuItem href='/landingpage' icon={<i className='ri-settings-2-line bg-white' />}>
+        <MenuItem href='/WaitApproval' icon={<i className='ri-settings-2-line bg-white' />}>
           <div className='text-white'>ตั้งค่าทั่วไป </div>
         </MenuItem>
 
