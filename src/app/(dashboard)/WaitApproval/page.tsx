@@ -39,10 +39,10 @@ export default function Page() {
           </Grid2>
         </Grid2>
       </Card>
-
+{/* 
         <DataTableComponent>
 
-        </DataTableComponent>
+        </DataTableComponent> */}
 
     </Box>
   )
