@@ -1,51 +1,57 @@
-// Next Imports
-import { cookies } from 'next/headers'
-
-// Third-party Imports
-import 'server-only'
-
-// Type Imports
+// Imports
 import type { Settings } from '@core/contexts/settingsContext'
 import type { SystemMode } from '@core/types'
-
-// Config Imports
 import themeConfig from '@configs/themeConfig'
 
-export const getSettingsFromCookie = async (): Promise<Settings> => {
-  const cookieStore = await cookies()
+export const getSettingsFromCookie = (): Settings => {
+  if (typeof document === 'undefined') return {} // กัน server-side call
 
-  const cookieName = themeConfig.settingsCookieName
+  const cookies = document.cookie.split('; ')
+  const cookie = cookies.find(cookie => cookie.startsWith(themeConfig.settingsCookieName))
 
-  return JSON.parse(cookieStore.get(cookieName)?.value || '{}')
+  if (cookie) {
+    const cookieValue = cookie.split('=')[1]
+    try {
+      return JSON.parse(decodeURIComponent(cookieValue) || '{}')
+    } catch (e) {
+      console.error('Invalid cookie JSON', e)
+      return {}
+    }
+  }
+
+  return {}
 }
 
-export const getMode = async () => {
-  const settingsCookie = await getSettingsFromCookie()
+export const getMode = (): SystemMode => {
+  const settingsCookie = getSettingsFromCookie()
 
-  // Get mode from cookie or fallback to theme config
-  const _mode = settingsCookie.mode || themeConfig.mode
-
-  return _mode
+  return (settingsCookie.mode || themeConfig.mode) as SystemMode
 }
 
-export const getSystemMode = async (): Promise<SystemMode> => {
-  const cookieStore = await cookies()
-  const mode = await getMode()
+export const getSystemMode = (): SystemMode => {
+  if (typeof document === 'undefined') return 'light'
 
-  const colorPrefCookie = (cookieStore.get('colorPref')?.value || 'light') as SystemMode
+  const mode = getMode()
 
-  return (mode === 'system' ? colorPrefCookie : mode) || 'light'
+  const cookies = document.cookie.split('; ')
+  const colorPrefCookie = cookies.reduce((acc, cookie) => {
+    const [key, value] = cookie.split('=')
+    if (key === 'colorPref') return value
+    return acc
+  }, 'light') as SystemMode
+
+  return mode === ('system' as SystemMode) ? colorPrefCookie : mode
 }
 
-export const getServerMode = async () => {
-  const mode = await getMode()
-  const systemMode = await getSystemMode()
+export const getServerMode = (): SystemMode => {
+  const mode = getMode()
+  const systemMode = getSystemMode()
 
-  return mode === 'system' ? systemMode : mode
+  return mode === ('system' as SystemMode) ? systemMode : mode
 }
 
-export const getSkin = async () => {
-  const settingsCookie = await getSettingsFromCookie()
+export const getSkin = (): string => {
+  const settingsCookie = getSettingsFromCookie()
 
   return settingsCookie.skin || 'default'
 }
