@@ -214,9 +214,9 @@ const DynamicSearchForm: React.FC<SearchFormProps> = ({
   }
 
   return (
-    <Card className={`my-6 ${classAttr}`}>
+    <Card className={`my-4 ${classAttr}`}>
       <div className='flex justify-between items-center cursor-pointer p-4' onClick={() => setShow(!show)}>
-        <Typography variant='h6'>ค้นหาข้อมูล</Typography>
+        <Typography variant='h3'>ค้นหาข้อมูล</Typography>
         <IconButton>{show ? <ExpandLess /> : <ExpandMore />}</IconButton>
       </div>
       <Collapse in={show}>
