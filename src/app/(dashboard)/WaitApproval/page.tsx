@@ -1,16 +1,16 @@
-import DataTableComponent from '@/components/DataTable'
-import { CardContent, Grid2 } from '@mui/material'
+'use client'
+
+import { Grid2 } from '@mui/material'
 import Card from '@mui/material/Card'
-import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import * as React from 'react'
 
 export default function Page() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-    <Card className='mb-3'>
-            <h2 className='p-4'>รออนุมัติปรับปรุงโครงสร้างหนี้</h2>
-    </Card>
+      <Card className='mb-3'>
+        <h2 className='p-4'>รออนุมัติปรับปรุงโครงสร้างหนี้</h2>
+      </Card>
       <Card>
         <Grid2 container size={2}>
           <Grid2 size={4} className='p-5'>
@@ -39,11 +39,10 @@ export default function Page() {
           </Grid2>
         </Grid2>
       </Card>
-{/* 
+      {/*
         <DataTableComponent>
 
         </DataTableComponent> */}
-
     </Box>
   )
 }

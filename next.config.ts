@@ -1,17 +1,15 @@
-import type { NextConfig } from 'next'
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   basePath: process.env.BASEPATH,
-  redirects: async () => {
-    return [
-      {
-        source: '/',
-        destination: '/home',
-        permanent: true,
-        locale: false
-      }
-    ]
+  eslint: {
+    ignoreDuringBuilds: true
+  },
+  distDir: 'dist',
+  output: 'export',
+  trailingSlash: false,
+  images: {
+    unoptimized: true
   }
 }
 
-export default nextConfig
+module.exports = nextConfig

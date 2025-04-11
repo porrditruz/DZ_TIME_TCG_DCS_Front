@@ -1,3 +1,5 @@
+'use client'
+
 // MUI Imports
 import Button from '@mui/material/Button'
 

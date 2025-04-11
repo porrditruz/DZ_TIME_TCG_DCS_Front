@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+* {
   font-family: 'K2D', sans-serif;
 }
 
@@ -61,11 +61,9 @@ ul:not([class]) {
 */
 [data-floating-ui-safe-polygon] .scrollbar-container {
   pointer-events: auto;
-
 }
 [data-floating-ui-safe-polygon] .scrollbar-container .ps__rail-y {
   pointer-events: none;
-  
 }
 
 .scrollbar-container {
@@ -143,4 +141,3 @@ code {
   background-color: rgb(var(--mui-palette-info-mainChannel) / 0.08);
   border: 0;
 }
-

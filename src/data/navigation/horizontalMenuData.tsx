@@ -1,3 +1,5 @@
+'use client'
+
 // Type Imports
 import type { HorizontalMenuDataType } from '@/types/menuTypes'
 

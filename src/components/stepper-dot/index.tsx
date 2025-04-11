@@ -1,3 +1,5 @@
+'use client'
+
 // MUI Imports
 import type { StepIconProps } from '@mui/material/StepIcon'
 

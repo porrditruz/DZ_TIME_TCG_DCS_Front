@@ -1,3 +1,5 @@
+'use client'
+
 // Hook Imports
 import useVerticalNav from '@menu/hooks/useVerticalNav'
 import useHorizontalNav from '@menu/hooks/useHorizontalNav'

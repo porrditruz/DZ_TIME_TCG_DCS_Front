@@ -1,3 +1,5 @@
+'use client'
+
 // MUI Imports
 import { useTheme } from '@mui/material/styles'
 
@@ -77,7 +79,6 @@ const VerticalMenu = ({ scrollMenu }: Props) => {
         <MenuItem href='/WaitApproval' icon={<i className='ri-settings-2-line bg-white' />}>
           <div className='text-white'>ตั้งค่าทั่วไป </div>
         </MenuItem>
-
       </Menu>
     </ScrollWrapper>
   )

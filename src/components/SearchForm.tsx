@@ -62,7 +62,7 @@ type Field = {
   value?: string
 }
 
-const DynamicSearchForm: React.FC<SearchFormProps> = ({
+export const DynamicSearchForm: React.FC<SearchFormProps> = ({
   modelValue = {},
   fields = [],
   buttonCols = { xl: 1, lg: 1, md: 2, sm: 12, cols: 12 },
@@ -242,4 +242,4 @@ const DynamicSearchForm: React.FC<SearchFormProps> = ({
   )
 }
 
-export default DynamicSearchForm
+// export default DynamicSearchForm

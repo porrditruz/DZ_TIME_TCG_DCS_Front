@@ -1,3 +1,5 @@
+'use client'
+
 // MUI Imports
 import InitColorSchemeScript from '@mui/material/InitColorSchemeScript'
 
@@ -16,10 +18,10 @@ import '@/app/globals.css'
 // Generated Icon CSS Imports
 import '@assets/iconify-icons/generated-icons.css'
 
-export const metadata = {
-  title: 'บสย บริษัทประกันสินเชื่อ อุตสาหกรรมขนาดย่อม',
-  description: 'บสย บริษัทประกันสินเชื่อ อุตสาหกรรมขนาดย่อม'
-}
+// export const metadata = {
+//   title: 'บสย บริษัทประกันสินเชื่อ อุตสาหกรรมขนาดย่อม',
+//   description: 'บสย บริษัทประกันสินเชื่อ อุตสาหกรรมขนาดย่อม'
+// }
 
 const RootLayout = async (props: ChildrenType) => {
   const { children } = props

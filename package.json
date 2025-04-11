@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 8103",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
@@ -35,7 +35,8 @@
     "react-perfect-scrollbar": "1.5.8",
     "react-router-dom": "^7.5.0",
     "react-use": "17.6.0",
-    "server-only": "0.0.1"
+    "server-only": "0.0.1",
+    "swr": "^2.3.3"
   },
   "devDependencies": {
     "@iconify/json": "2.2.286",

@@ -1,3 +1,5 @@
+'use client'
+
 // Type Imports
 import type { ChildrenType, Direction } from '@core/types'
 
